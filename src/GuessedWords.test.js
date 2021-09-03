@@ -1,4 +1,3 @@
-import Congrats from './Congrats'
 import {checkProps, findByTestAttr} from '../test/testUtils';
 import  { shallow } from 'enzyme';
 import GuessedWords from './GuessedWords';
@@ -43,5 +42,30 @@ test('does not throw warning with expected props',() => {
  })
  
  describe('if there are word guessed',()=>{
-     
+
+   const guessedWords = [
+        {   guessedWord: 'train' ,letterMatchCount: 3    },
+        {   guessedWord: 'agile' ,letterMatchCount: 1    },
+        {   guessedWord: 'party' ,letterMatchCount: 5    },
+
+    ]
+    let wrapper;
+    beforeEach(()=>{
+        wrapper = setup({guessedWords});
+     })
+
+     test('renders without error',() => {
+        const component = findByTestAttr(wrapper,'component-guessedWords')
+        expect(component.length).toBe(1)
+     })
+
+     test('renders guessed words section',() => {
+         const guessedWordsNode = findByTestAttr(wrapper, 'guessed-words')
+         expect(guessedWordsNode.length).toBe(1);
+    })
+
+    test('correct number of guessedWords',() => {
+         const guessedWordsNodes = findByTestAttr(wrapper, 'guessed-word')
+         expect(guessedWordsNodes.length).toBe(guessedWords.length)
+    })
 })  

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { checkProps, findByTestAttr} from '../test/testUtils';
+import { checkProps, findByTestAttr} from '../../../test/testUtils';
 import Input from './Input';
 
 const setup = (secretWord ='Party') =>{

@@ -1,6 +1,6 @@
-import Congrats from './Congrats'
-import GuessedWords from './GuessedWords'
-import './App.css';
+import Congrats from './componets/Congrats/Congrats'
+import GuessedWords from './componets/GuessedWords/GuessedWords'
+
 
 function App() {
   return (
